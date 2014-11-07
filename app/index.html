@@ -1,0 +1,75 @@
+<!doctype html>
+<html class="no-js" ng-app="comptes">
+    <head>
+        <meta charset="utf-8">
+        <title>angular</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <!-- build:css styles/vendor.css -->
+        <!-- bower:css -->
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- build:css styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+
+        <!-- build:js scripts/vendor/modernizr.js -->
+        <script src="bower_components/modernizr/modernizr.js"></script>
+        <!-- endbuild -->
+    </head>
+    <body ng-controller="MainCtrl">
+        <!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <h1>{{hello}}</h1>
+        <label>Capital restant dû: </label>
+        <input type="text" ng-model='capital'>
+        </br>
+        <label>Taux annuel: </label>
+        <input type="text" ng-model='taux'>
+        </br>
+        <label>Nombre d'échéances: </label>
+        <input type="text" ng-model='echeances' ng-change='changeEcheance(); changeCapital()'><span>{{warning}}</span>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Numéro Echéance</th>
+                    <th>Capital restant dû</th>
+                    <th>Mensualité</th>
+                    <th>Gain réel</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat='echance in totalEcheance'>
+                    <td>{{$index +1}}</td>
+                    <td>{{capital}}</td>
+                    <td>{{mensualite}}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        
+
+
+        <!-- build:js scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/angular/angular.min.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- build:js scripts/plugins.js -->
+        
+        <!-- endbuild -->
+
+        <!-- build:js scripts/main.js -->
+        <script src="scripts/main.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
